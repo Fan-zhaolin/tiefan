@@ -1,0 +1,16 @@
+{
+  "name": "@meal/data",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "ODbL-1.0",
+  "files": ["dist"],
+  "exports": {
+    ".": "./dist/index.ts",
+    "./data.json": "./dist/data.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.ts",
+    "validate": "node scripts/validate.ts",
+    "typecheck": "tsc --noEmit"
+  }
+}

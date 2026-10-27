@@ -1,0 +1,15 @@
+id: fanqiechaodan
+name: 番茄炒蛋
+aliases: [西红柿炒鸡蛋, 番茄鸡蛋, 西红柿炒蛋]
+kind: dish
+per: 100g
+kcal: null
+protein: null
+carb: null
+fat: null
+portions:
+  - unit: 盘
+    grams: 320
+method: jiachangchao
+source: MANUAL
+note: 待录入；未核实 TFDA 对应菜品的营养值；尚无实测配方，不从做法模板推算。

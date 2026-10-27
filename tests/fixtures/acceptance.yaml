@@ -1,0 +1,221 @@
+# 保留原有5条基础用例，并追加文档原定30条验收；expect 保持原样。
+# skip 只由实际缺数据决定，跳过理由由统一的数据依赖检查生成。
+- id: data-jixiong
+  input: 鸡胸肉200克
+  expect:
+    foods: [ 鸡胸肉 ]
+- id: data-mifan
+  input: 一碗白米饭
+  expect:
+    foods: [ 白米饭 ]
+- id: data-jidan
+  input: 鸡蛋2个
+  expect:
+    foods: [ 鸡蛋 ]
+- id: data-niunai
+  input: 一杯牛奶
+  expect:
+    foods: [ 牛奶 ]
+- id: data-fanqiechaodan
+  input: 西红柿炒鸡蛋
+  expect:
+    foods: [ 西红柿炒鸡蛋 ]
+
+# ---------- A. 食材 + 重量（精确路径） ----------
+- id: "01"
+  input: "鸡胸200g 米饭一碗"
+  expect:
+    foods: [ 鸡胸, 米饭 ]
+    must_be_exact: [ 鸡胸 ]
+    unresolved: 0
+
+- id: "02"
+  input: "早上两个鸡蛋一杯牛奶"
+  expect:
+    foods: [ 鸡蛋, 牛奶 ]
+    unresolved: 0
+
+- id: "03"
+  input: "鸡胸两百克"
+  expect:
+    foods: [ 鸡胸 ]
+    must_be_exact: [ 鸡胸 ]
+    unresolved: 0
+
+- id: "04"
+  input: "二两牛肉"
+  expect:
+    foods: [ 牛肉 ]
+    must_be_exact: [ 牛肉 ]
+
+- id: "05"
+  input: "半斤虾"
+  expect:
+    foods: [ 虾 ]
+    must_be_exact: [ 虾 ]
+
+- id: "06"
+  input: "0.2kg鸡胸"
+  expect:
+    foods: [ 鸡胸 ]
+    must_be_exact: [ 鸡胸 ]
+
+- id: "07"
+  input: "鸡胸200"
+  expect:
+    foods: [ 鸡胸 ]
+    must_be_exact: [ 鸡胸 ] # 裸数字默认克
+
+- id: "08"
+  input: "鸡蛋2个"
+  expect:
+    foods: [ 鸡蛋 ]
+    must_be_exact: [ 鸡蛋 ] # 依赖 Dish 提供「个 = 50g」
+
+# ---------- B. 数字菜名（最容易翻车） ----------
+- id: "09"
+  input: "三杯鸡"
+  expect:
+    foods: [ 三杯鸡 ] # 必须整词命中，不得解析成「鸡 3 杯」
+    unresolved: 0
+  skip: true
+  skip_reason: 缺 三杯鸡（食物条目） 数据
+
+- id: "10"
+  input: "八宝粥"
+  expect:
+    foods: [ 八宝粥 ] # 不得是「8 宝粥」
+  skip: true
+  skip_reason: 缺 八宝粥（食物条目） 数据
+
+- id: "11"
+  input: "夫妻肺片"
+  expect:
+    foods: [ 夫妻肺片 ]
+  skip: true
+  skip_reason: 缺 夫妻肺片（食物条目） 数据
+
+# ---------- C. 菜名（模糊路径） ----------
+- id: "12"
+  input: "中午黄焖鸡"
+  expect:
+    foods: [ 黄焖鸡 ]
+    must_be_exact: [] # 无克数 → 只能 estimate
+    kcal: null
+  skip: true
+  skip_reason: 缺 黄焖鸡（食物条目） 数据
+
+- id: "13"
+  input: "一碗牛肉面"
+  expect:
+    foods: [ 牛肉面 ]
+  skip: true
+  skip_reason: 缺 牛肉面（食物条目） 数据
+
+- id: "14"
+  input: "中午吃了个汉堡"
+  expect:
+    foods: [ 汉堡 ]
+  skip: true
+  skip_reason: 缺 汉堡（食物条目） 数据
+
+- id: "15"
+  input: "一份番茄炒蛋 一份白米饭"
+  expect:
+    foods: [ 番茄炒蛋, 米饭 ]
+    unresolved: 0
+  skip: true
+  skip_reason: 缺 番茄炒蛋（营养值、份量「份」）、米饭（份量「份」） 数据
+
+- id: "16"
+  input: "番茄炒蛋 半份"
+  expect:
+    foods: [ 番茄炒蛋 ]
+
+- id: "17"
+  input: "大概吃了碗面"
+  expect:
+    foods: [ 面 ]
+    must_be_exact: []
+  skip: true
+  skip_reason: 缺 面（食物条目） 数据
+
+# ---------- D. 约数 / 修饰 ----------
+- id: "18"
+  input: "大概200克米饭"
+  expect:
+    foods: [ 米饭 ]
+    unresolved: 0
+
+- id: "19"
+  input: "鸡胸 200g 左右"
+  expect:
+    foods: [ 鸡胸 ]
+
+- id: "20"
+  input: "加餐一拳头米饭"
+  expect:
+    foods: [ 米饭 ]
+
+# ---------- E. 别名 / 方言语序 ----------
+- id: "21"
+  input: "宫爆鸡丁"
+  expect:
+    foods: [ 宫保鸡丁 ] # 别名命中
+  skip: true
+  skip_reason: 缺 宫保鸡丁（食物条目） 数据
+
+- id: "22"
+  input: "西红柿炒鸡蛋"
+  expect:
+    foods: [ 番茄炒蛋 ] # 别名命中
+
+# ---------- F. 全角 / 混合单位 ----------
+- id: "23"
+  input: "鸡胸２００ｇ"
+  expect:
+    foods: [ 鸡胸 ]
+    must_be_exact: [ 鸡胸 ] # 全角必须先归一
+
+- id: "24"
+  input: "早上燕麦50g 牛奶250ml"
+  expect:
+    foods: [ 燕麦, 牛奶 ]
+    unresolved: 0
+
+# ---------- G. 降级路径（不许报错） ----------
+- id: "25"
+  input: "吃了点东西"
+  expect:
+    foods: []
+    unresolved: 0 # 不报错，返回空 items 即可
+
+- id: "26"
+  input: "昨天剩的半盒炒饭"
+  expect:
+    foods: [ 炒饭 ] # 可识别出食物即算过；份量给 estimate
+  skip: true
+  skip_reason: 缺 炒饭（食物条目） 数据
+
+- id: "27"
+  input: "跟朋友吃了顿饭"
+  expect:
+    foods: []
+
+- id: "28"
+  input: "一勺蛋白粉"
+  expect:
+    foods: [ 蛋白粉 ]
+  skip: true
+  skip_reason: 缺 蛋白粉（食物条目） 数据
+
+# ---------- H. 边界输入（不许崩） ----------
+- id: "29"
+  input: ""
+  expect:
+    foods: []
+
+- id: "30"
+  input: "！！！？？？。。。。"
+  expect:
+    foods: []

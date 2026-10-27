@@ -1,0 +1,13 @@
+id: fanqie
+name: 番茄
+aliases: [西红柿]
+kind: ingredient
+per: 100g
+kcal: 18
+protein: 1.0
+carb: 3.9
+fat: 0.3
+portions: []
+method: null
+source: USDA
+note: "FDC 170457 红熟番茄；规则1豁免：纤维占比>20%"

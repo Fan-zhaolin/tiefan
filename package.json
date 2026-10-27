@@ -1,0 +1,26 @@
+{
+  "name": "meal-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "scripts": {
+    "build": "pnpm --filter @meal/data build && pnpm --filter @meal/core build && pnpm --filter @meal/cli build && pnpm --filter @meal/web build",
+    "test": "pnpm --filter @meal/data build && pnpm --filter @meal/cli build && pnpm --filter @meal/web build && vitest run",
+    "lint": "eslint .",
+    "validate": "pnpm --filter @meal/data validate",
+    "cli": "pnpm --filter @meal/cli dev --"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.0",
+    "esbuild": "0.28.2",
+    "eslint": "10.13.0",
+    "tsup": "9.0.0",
+    "typescript": "6.0.2",
+    "vitest": "5.0.5",
+    "yaml": "2.9.1"
+  }
+}

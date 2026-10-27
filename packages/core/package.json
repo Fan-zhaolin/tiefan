@@ -1,0 +1,16 @@
+{
+  "name": "@meal/core",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean --platform neutral"
+  }
+}

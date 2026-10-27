@@ -1,0 +1,14 @@
+{
+  "name": "@meal/cli",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "bin": {
+    "meal": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean --platform node",
+    "dev": "pnpm run build && node dist/index.js"
+  }
+}

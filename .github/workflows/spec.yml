@@ -1,0 +1,20 @@
+name: 规格文档检查
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - '.markdownlint.json'
+      - '.github/workflows/spec.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  specification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v20
+        with:
+          globs: 'docs/**/*.md'

@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "../..",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+    "paths": {
+      "@meal/core": ["../core/src/index.ts"],
+      "@meal/data": ["../data/dist/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}

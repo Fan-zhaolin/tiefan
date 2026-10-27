@@ -1,0 +1,14 @@
+id: yanmai
+name: 燕麦
+aliases: [燕麦片, 麦片]
+kind: ingredient
+per: 100g
+kcal: 379
+protein: 13.2
+carb: 67.7
+fat: 6.5
+portions:
+  - {unit: 份, grams: 40}
+method: null
+source: USDA
+note: "FDC 173904 干燕麦（非即食）；生重"

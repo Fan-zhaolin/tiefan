@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>铁与饭</title>
+    <!-- APP_CSS -->
+  </head>
+  <body>
+    <div class="ledger">
+      <header class="input-bar">
+        <div class="heading">
+          <h1>铁与饭</h1>
+          <span id="date"></span>
+          <button id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">设置</button>
+        </div>
+        <div id="settings" hidden><button id="export" type="button">导出</button></div>
+        <form id="meal-form" autocomplete="off">
+          <label class="visually-hidden" for="meal-input">吃了什么</label>
+          <input id="meal-input" name="meal" type="text" enterkeyhint="done" placeholder="中午吃了什么…">
+        </form>
+        <p id="input-message" class="muted" hidden></p>
+      </header>
+      <main>
+        <ol id="timeline" aria-label="今天的饮食"></ol>
+        <p id="empty" class="empty muted">今天还没记</p>
+      </main>
+      <footer class="daily-footer">
+        <div class="total-line"><span id="total-label">今天</span><output id="total">—</output></div>
+        <button id="skip-today" type="button">今天不记</button>
+      </footer>
+    </div>
+    <!-- APP_JS -->
+  </body>
+</html>

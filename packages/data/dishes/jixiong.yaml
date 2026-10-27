@@ -1,0 +1,17 @@
+# USDA FoodData Central，FDC 171077，读取日期：2026-10-27。
+# https://api.nal.usda.gov/fdc/v1/food/171077?api_key=DEMO_KEY
+# 官方原始每 100g：Energy=120 kcal，Protein=22.5g，Carbohydrate=0g，Fat=2.62g。
+# 宏量按规格保留一位小数；热量直接使用官方值，不按宏量反算。
+id: jixiong
+name: 鸡胸
+aliases: [鸡胸肉]
+kind: ingredient
+per: 100g
+kcal: 120
+protein: 22.5
+carb: 0.0
+fat: 2.6
+portions: []
+method: null
+source: USDA
+note: 生重；去皮去骨鸡胸肉；USDA SR Legacy，FDC 171077；每 100g 可食部。

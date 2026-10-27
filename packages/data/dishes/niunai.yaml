@@ -1,0 +1,14 @@
+id: niunai
+name: 牛奶
+aliases: [全脂牛奶, 纯牛奶]
+kind: ingredient
+per: 100g
+kcal: 61
+protein: 3.2
+carb: 4.8
+fat: 3.3
+portions:
+  - {unit: 杯, grams: 250}
+method: null
+source: USDA
+note: "FDC 171265 全脂牛奶3.25%"

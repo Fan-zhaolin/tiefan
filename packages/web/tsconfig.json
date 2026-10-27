@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM"],
+    "outDir": "dist",
+    "rootDir": "../..",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "@meal/core": ["../core/src/index.ts"],
+      "@meal/data": ["../data/dist/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts"]
+}

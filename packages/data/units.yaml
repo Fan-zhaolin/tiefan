@@ -1,0 +1,24 @@
+- id: g
+  name: 克
+  grams: 1
+  aliases: [克, 公克, g, G]
+- id: kg
+  name: 公斤
+  grams: 1000
+  aliases: [公斤, 千克, kg, KG]
+- id: liang
+  name: 两
+  grams: 50
+  aliases: [两]
+- id: jin
+  name: 斤
+  grams: 500
+  aliases: [斤]
+- id: ml
+  name: 毫升
+  grams: 1
+  aliases: [毫升, ml, ML]
+- id: ge
+  name: 个
+  grams: 0
+  aliases: [个, 只, 枚]

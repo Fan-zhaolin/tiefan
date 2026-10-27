@@ -1,0 +1,19 @@
+# USDA FoodData Central，FDC 171287，读取日期：2026-10-27。
+# https://api.nal.usda.gov/fdc/v1/food/171287?api_key=DEMO_KEY
+# 官方原始每 100g：Energy=143 kcal，Protein=12.56g，Carbohydrate=0.72g，Fat=9.51g。
+# 宏量按规格保留一位小数；个=50g 按 T1 指定份量。
+id: jidan
+name: 鸡蛋
+aliases: []
+kind: ingredient
+per: 100g
+kcal: 143
+protein: 12.6
+carb: 0.7
+fat: 9.5
+portions:
+  - unit: 个
+    grams: 50
+method: null
+source: USDA
+note: 生重；去壳全蛋；USDA SR Legacy，FDC 171287；每 100g 可食部。

@@ -1,0 +1,15 @@
+id: mifan
+name: 米饭
+aliases: [白饭, 白米饭, 大米饭]
+kind: dish
+per: 100g
+kcal: 130
+protein: 2.7
+carb: 28.2
+fat: 0.3
+portions:
+  - {unit: 碗, grams: 150}
+  - {unit: 拳, grams: 140}
+method: null
+source: USDA
+note: "FDC 168878 白米长粒煮熟；熟重"
