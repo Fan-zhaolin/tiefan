@@ -16,7 +16,8 @@ $ meal "鸡胸200g 米饭一碗"
 
 ## 跑起来（v0 未发布 npm，用源码方式）
 
-    git clone <仓库地址>
+    git clone https://github.com/Fan-zhaolin/tiefan.git
+    cd tiefan
     pnpm install && pnpm build
 
     # CLI
