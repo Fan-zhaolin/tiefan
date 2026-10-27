@@ -9,6 +9,7 @@ carb: 4.8
 fat: 3.3
 portions:
   - {unit: 杯, grams: 250}
+  - {unit: 盒, grams: 250}
 method: null
 source: USDA
-note: "FDC 171265 全脂牛奶3.25%"
+note: "FDC 171265 全脂牛奶3.25%；盒按 250ml 利乐包标准。"
